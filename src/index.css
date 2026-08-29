@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/* ── Tailwind v4 theme tokens ── */
+@theme {
+  /* Colors */
+  --color-cream-50: #FDFBF7;
+  --color-cream-100: #F7F4EB;
+  --color-cream-200: #EFECE0;
+
+  --color-botanical-light: #6B8E70;
+  --color-botanical: #3F5844;
+  --color-botanical-dark: #243327;
+  --color-botanical-deep: #18241A;
+
+  --color-gold-light: #EAD79B;
+  --color-gold: #C5A059;
+  --color-gold-dark: #9A7B38;
+
+  --color-charcoal-light: #4A5568;
+  --color-charcoal: #222823;
+  --color-charcoal-dark: #111512;
+
+  /* Font families */
+  --font-script: "Great Vibes", cursive;
+  --font-serif: "Playfair Display", serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-arabic: "Amiri", serif;
+
+  /* Box shadows */
+  --shadow-luxury: 0 20px 40px -15px rgba(36, 51, 39, 0.08);
+  --shadow-wax: 0 8px 20px -4px rgba(197, 160, 89, 0.4);
+
+  /* Animations */
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-pulse-gold: pulse-gold 2s ease-in-out infinite;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-8px); }
+  }
+  @keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes pulse-gold {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.4); }
+    50% { opacity: 0.85; box-shadow: 0 0 0 8px rgba(197, 160, 89, 0); }
+  }
+}
+
+/* ── Global resets ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  background-color: var(--color-cream-50);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-cream-200);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-gold);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-dark);
+}
+
+/* ── CSS custom properties (for non-tailwind use) ── */
+:root {
+  --cream-50: #FDFBF7;
+  --cream-100: #F7F4EB;
+  --cream-200: #EFECE0;
+  --botanical: #3F5844;
+  --botanical-light: #6B8E70;
+  --botanical-dark: #243327;
+  --botanical-deep: #18241A;
+  --gold: #C5A059;
+  --gold-light: #EAD79B;
+  --gold-dark: #9A7B38;
+  --charcoal: #222823;
+  --charcoal-light: #4A5568;
+}
+
+/* ── Gold shimmer text utility ── */
+.text-gold-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--gold-dark) 0%,
+    var(--gold) 30%,
+    var(--gold-light) 50%,
+    var(--gold) 70%,
+    var(--gold-dark) 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+/* ── Botanical texture overlay ── */
+.botanical-texture {
+  position: relative;
+}
+.botanical-texture::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233F5844' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Gold line divider ── */
+.gold-line {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ── Card paper texture ── */
+.paper-texture {
+  background-color: var(--cream-50);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 24px,
+      rgba(197, 160, 89, 0.04) 24px,
+      rgba(197, 160, 89, 0.04) 25px
+    );
+}
+
+/* ── Wax seal glow ── */
+.wax-seal-glow {
+  filter: drop-shadow(0 4px 12px rgba(197, 160, 89, 0.5));
+}
+
+/* ── Section fade-in ── */
+.section-reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.section-reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Arabic text ── */
+.arabic-text {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  unicode-bidi: bidi-override;
+  line-height: 1.6;
+}
+
+/* ── Cinzel decorative headings ── */
+.cinzel-heading {
+  font-family: var(--font-cinzel);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Glass card ── */
+.glass-card {
+  background: rgba(253, 251, 247, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+/* ── Input focus gold ring ── */
+.input-gold {
+  outline: none;
+}
+.input-gold:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(197, 160, 89, 0.15);
+}
