@@ -8,7 +8,6 @@ import ScratchSection from './components/scratch/ScratchSection';
 import CountdownSection from './components/countdown/CountdownSection';
 import TimelineSection from './components/timeline/TimelineSection';
 import VenueSection from './components/venue/VenueSection';
-import DressCodeSection from './components/logistics/DressCodeSection';
 import RSVPSection from './components/rsvp/RSVPSection';
 import FooterSection from './components/shared/FooterSection';
 import FloralDivider from './components/FloralDivider';
@@ -54,14 +53,10 @@ function InvitationContent() {
       <VenueSection />
       <SectionDivider color="gold" />
 
-      {/* 6. Dress Code & Guidelines */}
-      <DressCodeSection />
-      <SectionDivider color="botanical" />
-
-      {/* 7. Interactive RSVP & Wishes */}
+      {/* 6. Interactive RSVP & Wishes */}
       <RSVPSection />
 
-      {/* 8. Footer */}
+      {/* 7. Footer */}
       <FooterSection />
     </motion.main>
   );
