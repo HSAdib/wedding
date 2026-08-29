@@ -1,18 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Outer Gold Ring -->
-  <circle cx="32" cy="32" r="30" stroke="#C5A059" stroke-width="1.5" fill="#18241A" />
-  <circle cx="32" cy="32" r="26" stroke="#C5A059" stroke-width="0.5" stroke-dasharray="2 2" fill="none" opacity="0.6" />
-  
-  <!-- Cardinal Gold Accents -->
-  <circle cx="32" cy="3" r="1.5" fill="#EAD79B" />
-  <circle cx="32" cy="61" r="1.5" fill="#EAD79B" />
-  <circle cx="3" cy="32" r="1.5" fill="#EAD79B" />
-  <circle cx="61" cy="32" r="1.5" fill="#EAD79B" />
-  
-  <!-- Monogram A&E -->
-  <text x="32" y="38" font-family="'Great Vibes', 'Playfair Display', serif" font-size="20" fill="#EAD79B" text-anchor="middle" font-weight="normal">A&amp;E</text>
-  
-  <!-- Small Bottom Floral Accent -->
-  <path d="M26 44 Q32 41 38 44" stroke="#C5A059" stroke-width="0.8" fill="none" opacity="0.8" />
-  <circle cx="32" cy="42.5" r="1" fill="#C5A059" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <circle cx="32" cy="32" r="30" fill="#243327" stroke="#C5A059" stroke-width="2"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#C5A059" stroke-width="0.75" stroke-dasharray="2 1.5"/>
+  <!-- Bespoke A&E Monogram -->
+  <g transform="translate(10, 10) scale(0.275)" fill="none">
+    <!-- Left flourish of A -->
+    <path d="M 68,54 C 58,54 48,58 43,67 C 39,74 41,83 48,84 C 55,85 64,80 72,74" stroke="#FFEAA7" stroke-width="3" stroke-linecap="round"/>
+    <path d="M 52,83 C 58,74 68,56 76,41" stroke="#FFEAA7" stroke-width="3.2" stroke-linecap="round"/>
+    <!-- Stem of A -->
+    <path d="M 76,38 L 92,76 L 86,76 L 76,42" fill="#FFEAA7"/>
+    <path d="M 83,76 L 96,76" stroke="#FFEAA7" stroke-width="2.5" stroke-linecap="square"/>
+    <!-- Top-right Loop -->
+    <path d="M 58,76 C 68,76 80,78 90,78 C 98,78 108,76 112,68 C 115,61 113,54 107,52 C 100,50 94,56 94,62 C 94,69 100,74 108,76" stroke="#FFEAA7" stroke-width="3" stroke-linecap="round"/>
+    <!-- Bottom Swash Ribbon -->
+    <path d="M 68,76 C 56,86 46,98 46,108 C 46,118 55,124 64,124 C 74,124 88,114 102,102 C 114,92 126,98 127,108 C 128,118 118,124 106,124 C 94,124 82,118 74,112" stroke="#FFEAA7" stroke-width="3" stroke-linecap="round"/>
+    <!-- Letter E -->
+    <path d="M 98,90 L 105,90 L 105,120 L 98,120 Z" fill="#FFEAA7"/>
+    <path d="M 94,90 L 109,90" stroke="#FFEAA7" stroke-width="2.2"/>
+    <path d="M 94,120 L 109,120" stroke="#FFEAA7" stroke-width="2.2"/>
+    <path d="M 105,90 L 122,90 C 124,90 126,92 126,95" stroke="#FFEAA7" stroke-width="2.8" stroke-linecap="round"/>
+    <path d="M 105,103 L 118,103" stroke="#FFEAA7" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M 105,120 L 120,120 C 124,120 126,116 125,112" stroke="#FFEAA7" stroke-width="2.8" stroke-linecap="round"/>
+    <circle cx="120" cy="110" r="2.2" fill="#FFEAA7"/>
+  </g>
 </svg>

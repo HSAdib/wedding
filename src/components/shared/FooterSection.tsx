@@ -3,6 +3,8 @@ import { Heart } from 'lucide-react';
 import { WEDDING } from '../../data/weddingData';
 import FloralDivider from '../FloralDivider';
 
+import AEMonogram from '../AEMonogram';
+
 export default function FooterSection() {
   return (
     <footer className="relative py-20 px-6 bg-gradient-to-b from-botanical-dark via-botanical-deep to-[#0f1712] text-cream-50 flex flex-col items-center gap-8 text-center overflow-hidden">
@@ -19,16 +21,14 @@ export default function FooterSection() {
       >
         {/* Outer Fine Gold Rings */}
         <div
-          className="w-20 h-20 rounded-full border border-gold/40 flex items-center justify-center relative"
+          className="w-24 h-24 rounded-full border border-gold/40 flex items-center justify-center relative"
           style={{
             boxShadow: '0 0 25px rgba(197, 160, 89, 0.15)',
           }}
         >
-          <div className="w-16 h-16 rounded-full border border-gold/20 flex items-center justify-center">
-            {/* Script Monogram */}
-            <span className="font-script text-3xl text-gold-light tracking-wide pt-1">
-              A&amp;E
-            </span>
+          <div className="w-20 h-20 rounded-full border border-gold/20 flex items-center justify-center">
+            {/* Bespoke A&E Monogram */}
+            <AEMonogram size={56} variant="gold" embossed={false} />
           </div>
 
           {/* 4 Cardinal Gold Accents */}
