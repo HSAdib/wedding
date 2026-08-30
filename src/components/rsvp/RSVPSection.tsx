@@ -8,7 +8,6 @@ interface Wish {
   id: string;
   name: string;
   contact: string;
-  guests: string;
   attending: boolean;
   message: string;
   timestamp: string;
@@ -19,7 +18,6 @@ const INITIAL_WISHES: Wish[] = [
     id: '1',
     name: 'Tanvir Ahmed & Family',
     contact: '',
-    guests: '2',
     attending: true,
     message: 'Barakallahu lakuma wa baraka alaikuma wa jama\'a bainakuma fee khair! So excited to celebrate with both of you.',
     timestamp: 'Just now',
@@ -28,7 +26,6 @@ const INITIAL_WISHES: Wish[] = [
     id: '2',
     name: 'Nusrat & Farhan',
     contact: '',
-    guests: '2',
     attending: true,
     message: 'Wishing Adib and Esha a lifetime of unconditional love, peace, and immense joy. See you in Sylhet!',
     timestamp: '2 hours ago',
@@ -39,7 +36,6 @@ export default function RSVPSection() {
   const [name, setName] = useState('');
   const [contact, setContact] = useState('');
   const [attending, setAttending] = useState<boolean | null>(null);
-  const [guests, setGuests] = useState('1');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -61,7 +57,6 @@ export default function RSVPSection() {
       id: Date.now().toString(),
       name: name.trim(),
       contact: contact.trim(),
-      guests,
       attending,
       message: message.trim(),
       timestamp: 'Just now',
@@ -100,7 +95,6 @@ export default function RSVPSection() {
     setName('');
     setContact('');
     setAttending(null);
-    setGuests('1');
     setMessage('');
     setSubmitted(false);
   };
@@ -210,29 +204,7 @@ export default function RSVPSection() {
                 </div>
               </div>
 
-              {/* 4. Number of Guests */}
-              {attending !== false && (
-                <motion.div
-                  className="flex flex-col gap-1.5"
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                >
-                  <label className="font-cinzel text-xs tracking-widest text-botanical-dark uppercase font-semibold">
-                    Number of Guests Attending
-                  </label>
-                  <select
-                    value={guests}
-                    onChange={e => setGuests(e.target.value)}
-                    className="w-full px-4 py-3 rounded-xl border border-gold/20 bg-cream-50/50 text-charcoal focus:ring-2 focus:ring-botanical focus:border-transparent outline-none transition-all text-sm font-sans cursor-pointer"
-                  >
-                    <option value="1">1 Guest (Myself)</option>
-                    <option value="2">2 Guests (+1 Companion)</option>
-                    <option value="3">3 Guests (Family)</option>
-                    <option value="4+">4+ Guests (Family Group)</option>
-                  </select>
-                </motion.div>
-              )}
+
 
               {/* 5. Heartfelt Message / Duas */}
               <div className="flex flex-col gap-1.5">
@@ -305,7 +277,7 @@ export default function RSVPSection() {
 
               <p className="font-sans text-charcoal-light text-xs opacity-65 max-w-sm leading-relaxed">
                 {attending
-                  ? `We have recorded your confirmation for ${guests} ${guests === '1' ? 'guest' : 'guests'} at Crystal Palace on September 04, 2026.`
+                  ? 'We have recorded your confirmation. We look forward to celebrating with you at Crystal Palace on September 04, 2026.'
                   : 'We will miss having you in person, but your love and prayers remain close in our hearts.'}
               </p>
 

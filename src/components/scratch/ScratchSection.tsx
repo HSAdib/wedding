@@ -151,9 +151,6 @@ export default function ScratchSection() {
       ctx.font = 'bold 13px "Cinzel", serif';
       ctx.fillText('✦ SCRATCH TO REVEAL ✦', cx, cy + 36);
 
-      ctx.fillStyle = 'rgba(24, 36, 26, 0.65)';
-      ctx.font = '500 11px "Plus Jakarta Sans", sans-serif';
-      ctx.fillText('Scratch 50% or tap to reveal date', cx, cy + 54);
     };
 
     const rafId = requestAnimationFrame(drawFoil);
@@ -304,9 +301,7 @@ export default function ScratchSection() {
           Reveal the Date
         </h2>
         <FloralDivider color="gold" />
-        <p className="font-sans text-charcoal-light text-xs md:text-sm opacity-60 max-w-xs text-center">
-          Scratch 50% of the foil or tap below to unveil our sacred wedding date
-        </p>
+
       </motion.div>
 
       {/* ── Main Scratch Card Container ── */}

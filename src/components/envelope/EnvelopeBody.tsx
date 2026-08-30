@@ -21,11 +21,16 @@ export default function EnvelopeBody({
 }: EnvelopeBodyProps) {
   return (
     <div className="relative w-full max-w-[390px] mx-auto flex flex-col items-center select-none" style={{ perspective: '1400px' }}>
-      {/* ── Bloom Lens Flare ── */}
-      <OpeningBloom active={sealState === 'burst'} />
-
       {/* ── Envelope Scene Stage ── */}
       <div className="relative w-full" style={{ height: 260 }}>
+
+        {/* ── Bloom Lens Flare — clipped to envelope's rounded-3xl shape ── */}
+        <div
+          className="absolute inset-0 rounded-3xl overflow-hidden pointer-events-none"
+          style={{ zIndex: 50 }}
+        >
+          <OpeningBloom active={sealState === 'burst'} />
+        </div>
 
         {/* ── Layer 1: Envelope Interior Back Wall (Deep Botanical Green & Gold Foil) ──
             This is the interior cavity lining of the envelope.
@@ -99,18 +104,24 @@ export default function EnvelopeBody({
             z-index: 10 (Covers left and right sides of the pocket)
         ───────────────────────────────────────────────────────────────────────── */}
         <div
-          className="absolute inset-0 rounded-l-3xl pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background: 'linear-gradient(to right, #F5EFE4 0%, #EFE8DA 65%, transparent 100%)',
             clipPath: 'polygon(0 0, 0 100%, 53% 50%)',
+            WebkitClipPath: 'polygon(0 0, 0 100%, 53% 50%)',
+            borderRadius: '1.5rem',
+            overflow: 'hidden',
             zIndex: 10,
           }}
         />
         <div
-          className="absolute inset-0 rounded-r-3xl pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background: 'linear-gradient(to left, #F5EFE4 0%, #EFE8DA 65%, transparent 100%)',
             clipPath: 'polygon(100% 0, 47% 50%, 100% 100%)',
+            WebkitClipPath: 'polygon(100% 0, 47% 50%, 100% 100%)',
+            borderRadius: '1.5rem',
+            overflow: 'hidden',
             zIndex: 10,
           }}
         />
@@ -119,10 +130,12 @@ export default function EnvelopeBody({
             z-index: 15 (Forms the front pocket bottom)
         ───────────────────────────────────────────────────────────────────────── */}
         <div
-          className="absolute inset-0 rounded-b-3xl pointer-events-none"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background: 'linear-gradient(to bottom, #F7F1E6 0%, #ECE3D2 100%)',
             clipPath: 'polygon(0 100%, 50% 40%, 100% 100%)',
+            borderRadius: '1.5rem',
+            overflow: 'hidden',
             filter: 'drop-shadow(0 -5px 10px rgba(0, 0, 0, 0.08))',
             zIndex: 15,
           }}
@@ -136,10 +149,10 @@ export default function EnvelopeBody({
             }}
           />
 
-          {/* Bottom Flap Gold Filigree Trim */}
+          {/* Bottom Flap Gold Filigree Trim — endpoints inset 34px to stay inside rounded corners */}
           <svg viewBox="0 0 390 260" className="w-full h-full" fill="none">
             <path
-              d="M 0,260 L 195,104 L 390,260"
+              d="M 34,260 L 195,104 L 356,260"
               stroke="url(#bottom-flap-gold)"
               strokeWidth="1.5"
               strokeDasharray="4 2"
@@ -160,9 +173,11 @@ export default function EnvelopeBody({
             When open: flips -180deg on X-axis above the envelope.
         ───────────────────────────────────────────────────────────────────────── */}
         <motion.div
-          className="absolute top-0 inset-x-0 h-[56%] rounded-t-3xl"
+          className="absolute top-0 inset-x-0 h-[56%]"
           style={{
             clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
+            borderRadius: '1.5rem 1.5rem 0 0',
+            overflow: 'hidden',
             transformOrigin: 'top center',
             transformStyle: 'preserve-3d',
             backfaceVisibility: 'hidden',
@@ -186,18 +201,18 @@ export default function EnvelopeBody({
             }}
           />
 
-          {/* Dual Gold Foil Filigree V-Border Trim */}
+          {/* Dual Gold Foil Filigree V-Border Trim — endpoints inset 34px from edges to stay inside rounded corners */}
           <svg viewBox="0 0 390 146" className="w-full h-full" fill="none">
             {/* Outer Gold V-Line */}
             <path
-              d="M 0,0 L 195,142 L 390,0"
+              d="M 34,1 L 195,142 L 356,1"
               stroke="url(#top-v-trim)"
               strokeWidth="2.2"
               opacity="0.85"
             />
             {/* Inner Delicate Dashed Gold V-Line */}
             <path
-              d="M 12,0 L 195,130 L 378,0"
+              d="M 46,1 L 195,130 L 344,1"
               stroke="url(#top-v-trim)"
               strokeWidth="1.2"
               strokeDasharray="4 2"
